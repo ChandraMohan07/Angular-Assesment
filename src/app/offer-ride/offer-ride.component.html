@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm-6 m-2">
+            <h2 class="bg-primary m-0 rounded-top">Car Ride Registration Form</h2>
+            <form class="p-2 border border-primary" [formGroup]="regForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input class="form-control" name="name" type="text" formControlName="name"/>
+                    <span *ngIf="regForm.get('name').invalid && regForm.get('name').touched" class="bg-warning">
+                        Please Enter the Name
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="sLoc">Start Location</label>
+                    <input class="form-control" name="sLoc" type="text" formControlName="slocation"/>
+                    <span *ngIf="regForm.get('slocation').invalid && regForm.get('slocation').touched" class="bg-warning">
+                        Please Enter the Starting Location
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="Dest">Destination</label>
+                    <input class="form-control" name="Dest" type="text" formControlName="destination"/>
+                    <span *ngIf="regForm.get('destination').invalid && regForm.get('destination').touched" class="bg-warning">
+                        Please Enter the Destination
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="car">Car</label>
+                    <input class="form-control" name="car" type="text" formControlName="car"/>
+                    <span *ngIf="regForm.get('car').invalid && regForm.get('car').touched" class="bg-warning">
+                        Please Enter the Car Details
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="avail">Seats Available</label>
+                    <input class="form-control" name="avail" type="number" formControlName="seats"/>
+                    <span *ngIf="regForm.get('seats').invalid && regForm.get('seats').touched" class="bg-warning">
+                        Seats should be in between 0 and 8.
+                    </span>
+                </div>
+                <button class="btn btn-primary mx-2 my-2" type="submit" [disabled]="regForm.invalid">Submit</button>
+                <button class="btn btn-primary" type="reset">Go Back</button>
+            </form>
+        </div>
+    </div>
+</div>
